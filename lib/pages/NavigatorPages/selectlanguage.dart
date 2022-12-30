@@ -40,9 +40,9 @@ class _SelectLanguageState extends State<SelectLanguage> {
               Container(
                 height: media.height * 1,
                 width: media.width * 1,
-                padding: EdgeInsets.fromLTRB(media.width * 0.05, media.width * 0.05,
-                    media.width * 0.05, media.width * 0.05),
-                color: page,
+                padding: EdgeInsets.fromLTRB(media.width * 0.05,
+                    media.width * 0.05, media.width * 0.05, media.width * 0.05),
+                color: white,
                 child: Column(
                   children: [
                     SizedBox(height: MediaQuery.of(context).padding.top),
@@ -53,7 +53,8 @@ class _SelectLanguageState extends State<SelectLanguage> {
                           width: media.width * 1,
                           alignment: Alignment.center,
                           child: Text(
-                            languages[choosenLanguage]['text_change_language'],
+                            // languages[choosenLanguage]['text_change_language'],
+                            'Change Language',
                             style: GoogleFonts.roboto(
                                 fontSize: media.width * twenty,
                                 fontWeight: FontWeight.w600,
@@ -72,10 +73,10 @@ class _SelectLanguageState extends State<SelectLanguage> {
                       height: media.width * 0.05,
                     ),
                     SizedBox(
-                      width: media.width * 0.9,
-                      height: media.height * 0.16,
+                      width: 310,
+                      height: 180,
                       child: Image.asset(
-                        'assets/images/selectLanguage.png',
+                        'assets/images/languages.png',
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -98,8 +99,8 @@ class _SelectLanguageState extends State<SelectLanguage> {
                                           });
                                         },
                                         child: Container(
-                                          padding:
-                                              EdgeInsets.all(media.width * 0.025),
+                                          padding: EdgeInsets.all(
+                                              media.width * 0.025),
                                           child: Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
@@ -110,29 +111,32 @@ class _SelectLanguageState extends State<SelectLanguage> {
                                                         e['code'] == i)['name']
                                                     .toString(),
                                                 style: GoogleFonts.roboto(
-                                                    fontSize: media.width * sixteen,
+                                                    fontSize:
+                                                        media.width * sixteen,
                                                     color: textColor),
                                               ),
                                               Container(
                                                 height: media.width * 0.05,
                                                 width: media.width * 0.05,
                                                 decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    border: Border.all(
-                                                        color:
-                                                            const Color(0xff222222),
-                                                        width: 1.2)),
+                                                  shape: BoxShape.circle,
+                                                  color:
+                                                      const Color(0xff6BF1F1),
+                                                ),
                                                 alignment: Alignment.center,
                                                 child: (_choosenLanguage == i)
                                                     ? Container(
-                                                        height: media.width * 0.03,
-                                                        width: media.width * 0.03,
+                                                        height:
+                                                            media.width * 0.05,
+                                                        width:
+                                                            media.width * 0.05,
                                                         decoration:
-                                                            const BoxDecoration(
-                                                                shape:
-                                                                    BoxShape.circle,
-                                                                color: Color(
-                                                                    0xff222222)),
+                                                            BoxDecoration(
+                                                          shape:
+                                                              BoxShape.circle,
+                                                          color:
+                                                              Color(0xffF16BC0),
+                                                        ),
                                                       )
                                                     : Container(),
                                               )
@@ -148,35 +152,37 @@ class _SelectLanguageState extends State<SelectLanguage> {
                       ),
                     ),
                     Button(
-                        onTap: () async {
-                          choosenLanguage = _choosenLanguage;
-                          if (choosenLanguage == 'ar' ||
-                              choosenLanguage == 'ur' ||
-                              choosenLanguage == 'iw') {
-                            languageDirection = 'rtl';
-                          } else {
-                            languageDirection = 'ltr';
-                          }
-                          setState(() {
-                              _isLoading = true;
-                            });
-                          await getlangid();
-                          pref.setString('languageDirection', languageDirection);
-                          pref.setString('choosenLanguage', _choosenLanguage);
-                          valueNotifierHome.incrementNotifier();
-                          setState(() {
-                              _isLoading = false;
-                            });
-                          pop();
-                        },
-                        text: languages[choosenLanguage]['text_confirm'])
+                      onTap: () async {
+                        choosenLanguage = _choosenLanguage;
+                        if (choosenLanguage == 'ar' ||
+                            choosenLanguage == 'ur' ||
+                            choosenLanguage == 'iw') {
+                          languageDirection = 'rtl';
+                        } else {
+                          languageDirection = 'ltr';
+                        }
+                        setState(() {
+                          _isLoading = true;
+                        });
+                        await getlangid();
+                        pref.setString('languageDirection', languageDirection);
+                        pref.setString('choosenLanguage', _choosenLanguage);
+                        valueNotifierHome.incrementNotifier();
+                        setState(() {
+                          _isLoading = false;
+                        });
+                        pop();
+                      },
+                      // text: languages[choosenLanguage]['text_confirm'])
+                      text: 'Confirm',
+                    )
                   ],
                 ),
               ),
               //loader
-            (_isLoading == true)
-                        ? const Positioned(top: 0, child: Loading())
-                        : Container()
+              (_isLoading == true)
+                  ? const Positioned(top: 0, child: Loading())
+                  : Container()
             ],
           ),
         ),

@@ -42,7 +42,7 @@ class _SosState extends State<Sos> {
                           left: media.width * 0.05, right: media.width * 0.05),
                       height: media.height * 1,
                       width: media.width * 1,
-                      color: page,
+                      color: white,
                       child: Column(
                         children: [
                           SizedBox(
@@ -56,7 +56,8 @@ class _SosState extends State<Sos> {
                                 width: media.width * 1,
                                 alignment: Alignment.center,
                                 child: Text(
-                                  languages[choosenLanguage]['text_sos'],
+                                  // languages[choosenLanguage]['text_sos'],
+                                  'SOS',
                                   style: GoogleFonts.roboto(
                                       fontSize: media.width * twenty,
                                       fontWeight: FontWeight.w600,
@@ -85,14 +86,16 @@ class _SosState extends State<Sos> {
                             height: media.width * 0.05,
                           ),
                           Text(
-                            languages[choosenLanguage]['text_trust_contact_3'],
+                            // languages[choosenLanguage]['text_trust_contact_3'],
+                            'Set your emergency contacts',
                             style: GoogleFonts.roboto(
                                 fontSize: media.width * fourteen,
                                 fontWeight: FontWeight.w600,
                                 color: textColor),
                           ),
                           Text(
-                            languages[choosenLanguage]['text_trust_contact_4'],
+                            // languages[choosenLanguage]['text_trust_contact_4'],
+                            'You can make a trusted friend or family member an emergency contact call them in any case of an emergency or send a distress signal',
                             style: GoogleFonts.roboto(
                                 fontSize: media.width * twelve,
                                 color: textColor),
@@ -102,8 +105,8 @@ class _SosState extends State<Sos> {
                             height: media.width * 0.05,
                           ),
                           Text(
-                            languages[choosenLanguage]
-                                ['text_yourTrustedContacts'],
+                            // languages[choosenLanguage]['text_yourTrustedContacts'],
+                            'Your Trusted Contacts',
                             style: GoogleFonts.roboto(
                                 fontSize: media.width * fourteen,
                                 fontWeight: FontWeight.w600,
@@ -191,9 +194,8 @@ class _SosState extends State<Sos> {
                                                                             true;
                                                                       });
                                                                     },
-                                                                    child: const Icon(
-                                                                        Icons
-                                                                            .remove_circle_outline))
+                                                                    child: Image.asset('assets/images/clock.png')
+                                                                )
                                                               ],
                                                             ),
                                                           )
@@ -203,8 +205,8 @@ class _SosState extends State<Sos> {
                                               .toList(),
                                         )
                                       : Text(
-                                          languages[choosenLanguage]
-                                              ['text_noDataFound'],
+                                          // languages[choosenLanguage]['text_noDataFound'],
+                                    'No Data Found',
                                           style: GoogleFonts.roboto(
                                               fontSize: media.width * eighteen,
                                               fontWeight: FontWeight.w600,
@@ -236,8 +238,10 @@ class _SosState extends State<Sos> {
                                           setState(() {});
                                         }
                                       },
-                                      text: languages[choosenLanguage]
-                                          ['text_add_trust_contact']))
+                                      // text: languages[choosenLanguage]['text_add_trust_contact']
+                                      text: 'Add trusted contact',
+                                  )
+                          )
                               : Container()
                         ],
                       ),

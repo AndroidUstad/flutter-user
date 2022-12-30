@@ -60,7 +60,7 @@ class _FaqState extends State<Faq> {
                   Container(
                     height: media.height * 1,
                     width: media.width * 1,
-                    color: page,
+                    color: white,
                     padding: EdgeInsets.fromLTRB(media.width * 0.05,
                         media.width * 0.05, media.width * 0.05, 0),
                     child: Column(
@@ -74,7 +74,8 @@ class _FaqState extends State<Faq> {
                               width: media.width * 1,
                               alignment: Alignment.center,
                               child: Text(
-                                languages[choosenLanguage]['text_faq'],
+                                // languages[choosenLanguage]['text_faq'],
+                                'FAQ',
                                 style: GoogleFonts.roboto(
                                     fontSize: media.width * twenty,
                                     fontWeight: FontWeight.w600,
@@ -89,15 +90,11 @@ class _FaqState extends State<Faq> {
                                     child: const Icon(Icons.arrow_back)))
                           ],
                         ),
-                        SizedBox(
-                          height: media.width * 0.05,
-                        ),
-                        SizedBox(
-                          width: media.width * 0.9,
-                          height: media.height * 0.16,
-                          child: Image.asset(
-                            'assets/images/faqPage.png',
-                            fit: BoxFit.contain,
+                        Image(
+                          width: 300,
+                          height: 330,
+                          image: AssetImage(
+                            'assets/images/faq_pana.png',
                           ),
                         ),
                         SizedBox(
@@ -119,6 +116,7 @@ class _FaqState extends State<Faq> {
                                                   });
                                                 },
                                                 child: Container(
+                                                  color: page,
                                                   width: media.width * 0.9,
                                                   margin: EdgeInsets.only(
                                                       top: media.width * 0.025,
@@ -132,7 +130,7 @@ class _FaqState extends State<Faq> {
                                                               8),
                                                       color: page,
                                                       border: Border.all(
-                                                          color: borderLines,
+                                                          color: page,
                                                           width: 1.2)),
                                                   child: Column(
                                                     children: [
@@ -160,7 +158,7 @@ class _FaqState extends State<Faq> {
                                                                         FontWeight
                                                                             .w600,
                                                                     color:
-                                                                        textColor),
+                                                                        white),
                                                               )),
                                                           RotatedBox(
                                                               quarterTurns:
@@ -211,8 +209,8 @@ class _FaqState extends State<Faq> {
                                   )
                                 : (_faqCompleted == true)
                                     ? Text(
-                                        languages[choosenLanguage]
-                                            ['text_noDataFound'],
+                                        // languages[choosenLanguage]['text_noDataFound'],
+                                        'No Data Found',
                                         style: GoogleFonts.roboto(
                                             fontSize: media.width * eighteen,
                                             fontWeight: FontWeight.w600,

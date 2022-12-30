@@ -24,12 +24,11 @@ class _AboutState extends State<About> {
           padding: EdgeInsets.all(media.width * 0.05),
           height: media.height * 1,
           width: media.width * 1,
-          color: page,
+          color: white,
           child: Column(
             children: [
               Expanded(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: MediaQuery.of(context).padding.top),
                     Stack(
@@ -39,7 +38,8 @@ class _AboutState extends State<About> {
                           width: media.width * 1,
                           alignment: Alignment.center,
                           child: Text(
-                            languages[choosenLanguage]['text_about'],
+                            // languages[choosenLanguage]['text_about'],
+                            'ABOUT US',
                             style: GoogleFonts.roboto(
                                 fontSize: media.width * twenty,
                                 fontWeight: FontWeight.w600,
@@ -54,65 +54,61 @@ class _AboutState extends State<About> {
                                 child: const Icon(Icons.arrow_back)))
                       ],
                     ),
-                    SizedBox(
-                      height: media.width * 0.05,
-                    ),
-                    SizedBox(
-                      width: media.width * 0.9,
-                      height: media.height * 0.16,
-                      child: Image.asset(
-                        'assets/images/aboutImage.png',
-                        fit: BoxFit.contain,
+                    Image(
+                      width: 240,
+                      height: 310,
+                      image: AssetImage(
+                        'assets/images/aboutus.png',
                       ),
                     ),
                     SizedBox(
                       height: media.width * 0.1,
                     ),
-                    //terms and condition
-                    InkWell(
-                      onTap: () {
-                        openBrowser('terms and conditions url');
-                      },
-                      child: Text(
-                        languages[choosenLanguage]['text_termsandconditions'],
-                        style: GoogleFonts.roboto(
-                            fontSize: media.width * sixteen,
-                            fontWeight: FontWeight.w600,
-                            color: textColor),
-                      ),
-                    ),
-                    SizedBox(
-                      height: media.width * 0.05,
-                    ),
-                    //privacy policy
-                    InkWell(
-                      onTap: () {
-                        openBrowser('privacy policy url');
-                      },
-                      child: Text(
-                        languages[choosenLanguage]['text_privacy'],
-                        style: GoogleFonts.roboto(
-                            fontSize: media.width * sixteen,
-                            fontWeight: FontWeight.w600,
-                            color: textColor),
-                      ),
-                    ),
-                    SizedBox(
-                      height: media.width * 0.05,
-                    ),
-                    //website url
-                    InkWell(
-                      onTap: () {
-                        openBrowser('website url');
-                      },
-                      child: Text(
-                        languages[choosenLanguage]['text_about'],
-                        style: GoogleFonts.roboto(
-                            fontSize: media.width * sixteen,
-                            fontWeight: FontWeight.w600,
-                            color: textColor),
-                      ),
-                    ),
+                    // //terms and condition
+                    // InkWell(
+                    //   onTap: () {
+                    //     openBrowser('terms and conditions url');
+                    //   },
+                    //   child: Text(
+                    //     languages[choosenLanguage]['text_termsandconditions'],
+                    //     style: GoogleFonts.roboto(
+                    //         fontSize: media.width * sixteen,
+                    //         fontWeight: FontWeight.w600,
+                    //         color: textColor),
+                    //   ),
+                    // ),
+                    // SizedBox(
+                    //   height: media.width * 0.05,
+                    // ),
+                    // //privacy policy
+                    // InkWell(
+                    //   onTap: () {
+                    //     openBrowser('privacy policy url');
+                    //   },
+                    //   child: Text(
+                    //     languages[choosenLanguage]['text_privacy'],
+                    //     style: GoogleFonts.roboto(
+                    //         fontSize: media.width * sixteen,
+                    //         fontWeight: FontWeight.w600,
+                    //         color: textColor),
+                    //   ),
+                    // ),
+                    // SizedBox(
+                    //   height: media.width * 0.05,
+                    // ),
+                    // //website url
+                    // InkWell(
+                    //   onTap: () {
+                    //     openBrowser('website url');
+                    //   },
+                    //   child: Text(
+                    //     languages[choosenLanguage]['text_about'],
+                    //     style: GoogleFonts.roboto(
+                    //         fontSize: media.width * sixteen,
+                    //         fontWeight: FontWeight.w600,
+                    //         color: textColor),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

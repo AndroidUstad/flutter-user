@@ -60,6 +60,7 @@ class _MapsState extends State<Maps>
   bool _dropLocationMap = false;
   bool _locationDenied = false;
   int gettingPerm = 0;
+  int _showHistory = 0;
   Animation<double>? _animation;
 
   late PermissionStatus permission;
@@ -2851,29 +2852,6 @@ class _MapsState extends State<Maps>
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                SizedBox(
-                                  width: media.width * 0.9,
-                                  child: Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.end,
-                                    children: [
-                                      Container(
-                                          height: media.height * 0.1,
-                                          width: media.width * 0.1,
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: page),
-                                          child: InkWell(
-                                              onTap: () {
-                                                setState(() {
-                                                  deleteAccount = false;
-                                                });
-                                              },
-                                              child: const Icon(
-                                                  Icons.cancel_outlined))),
-                                    ],
-                                  ),
-                                ),
                                 Container(
                                   padding:
                                   EdgeInsets.all(media.width * 0.05),
@@ -2881,50 +2859,154 @@ class _MapsState extends State<Maps>
                                   decoration: BoxDecoration(
                                       borderRadius:
                                       BorderRadius.circular(12),
-                                      color: page),
+                                      color: white),
                                   child: Column(
                                     children: [
+                                      Text('Delete Account',style: TextStyle(fontSize: 14),),
+                                      SizedBox(
+                                        height: media.width * 0.15,
+                                      ),
+                                      SizedBox(
+                                        width: 230,
+                                        height: 210,
+                                        child: Image.asset(
+                                          'assets/images/deleteAccount.png',
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: media.width * 0.10,
+                                      ),
                                       Text(
-                                        languages[choosenLanguage]
-                                        ['text_delete_confirm'],
+                                        // languages[choosenLanguage]['text_delete_confirm'],
+                                        'Once you confirm all your data will be lost permanently and wont be able to recover',
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.roboto(
-                                            fontSize: media.width * sixteen,
+                                            fontSize: media.width * fourteen,
                                             color: textColor,
                                             fontWeight: FontWeight.w600),
                                       ),
                                       SizedBox(
-                                        height: media.width * 0.05,
+                                        height: media.width * 0.15,
                                       ),
-                                      Button(
-                                          onTap: () async {
-                                            setState(() {
-                                              deleteAccount = false;
-                                              _loading = true;
-                                            });
-                                            var result = await userDelete();
-                                            if (result == 'success') {
-                                              setState(() {
-                                                Navigator.pushAndRemoveUntil(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                        const Login()),
-                                                        (route) => false);
-                                                userDetails.clear();
-                                              });
-                                            } else {
-                                              setState(() {
-                                                _loading = false;
-                                                deleteAccount = true;
-                                              });
-                                            }
-                                            setState(() {
-                                              _loading = false;
-                                            });
-                                          },
-                                          text: languages[choosenLanguage]
-                                          ['text_confirm'])
+                                      // Button(
+                                      //     onTap: () async {
+                                      //       setState(() {
+                                      //         deleteAccount = false;
+                                      //         _loading = true;
+                                      //       });
+                                      //       var result = await userDelete();
+                                      //       if (result == 'success') {
+                                      //         setState(() {
+                                      //           Navigator.pushAndRemoveUntil(
+                                      //               context,
+                                      //               MaterialPageRoute(
+                                      //                   builder: (context) =>
+                                      //                   const Login()),
+                                      //                   (route) => false);
+                                      //           userDetails.clear();
+                                      //         });
+                                      //       } else {
+                                      //         setState(() {
+                                      //           _loading = false;
+                                      //           deleteAccount = true;
+                                      //         });
+                                      //       }
+                                      //       setState(() {
+                                      //         _loading = false;
+                                      //       });
+                                      //     },
+                                      //     // text: languages[choosenLanguage]['text_confirm']
+                                      //   text:'Confirm',
+                                      // ),
+                                      Container(
+                                        height: media.width * 0.13,
+                                        width: media.width * 0.9,
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: BorderRadius.circular(26),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  blurRadius: 2,
+                                                  spreadRadius: 2,
+                                                  color: page)
+                                            ]),
+                                        child: Row(
+                                          children: [
+                                            InkWell(
+                                              onTap: () async {
+                                                setState(() {
+                                                  myHistory.clear();
+                                                  myHistoryPage.clear();
+                                                  _showHistory = 0;
+                                                  _loading = true;
+                                                });
+
+                                                await getHistory('is_later=1');
+                                                setState(() {
+                                                  _loading = false;
+                                                });
+                                              },
+                                              child: Container(
+                                                  height: media.width * 0.3,
+                                                  alignment: Alignment.center,
+                                                  width: media.width * 0.4,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                      BorderRadius.circular(26),
+                                                      color: (_showHistory == 0)
+                                                          ? const Color(0xFF369CC7)
+                                                          : white),
+                                                  child: Text(
+                                                    // languages[choosenLanguage]['text_upcoming'],
+                                                    'Delete',
+                                                    style: GoogleFonts.roboto(
+                                                        fontSize: 12,
+                                                        fontWeight: FontWeight.w600,
+                                                        color: (_showHistory == 0)
+                                                            ? Colors.white
+                                                            : page),
+                                                  )),
+                                            ),
+                                            InkWell(
+                                              onTap: () async {
+                                                setState(() {
+                                                  myHistory.clear();
+                                                  myHistoryPage.clear();
+                                                  _showHistory = 1;
+                                                  _loading = true;
+                                                });
+
+                                                await getHistory('is_completed=1');
+                                                setState(() {
+                                                  _loading = false;
+                                                });
+                                              },
+                                              child: Container(
+                                                  height: media.width * 0.3,
+                                                  alignment: Alignment.center,
+                                                  width: media.width * 0.4,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                      BorderRadius.circular(26),
+                                                      color: (_showHistory == 1)
+                                                          ? const Color(0xFF369CC7)
+                                                          : white),
+                                                  child: Text(
+                                                    // languages[choosenLanguage]['text_completed'],
+                                                    'Cancel',
+                                                    style: GoogleFonts.roboto(
+                                                        fontSize: 12,
+                                                        fontWeight: FontWeight.w600,
+                                                        color: (_showHistory == 1)
+                                                            ? Colors.white
+                                                            : page),
+                                                  )),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+
                                     ],
                                   ),
                                 )

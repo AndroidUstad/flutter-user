@@ -10,6 +10,7 @@ import 'package:tagyourtaxi_driver/widgets/widgets.dart';
 // ignore: must_be_immutable
 class MakeComplaint extends StatefulWidget {
   int fromPage;
+
   // ignore: use_key_in_widget_constructors
   MakeComplaint({required this.fromPage});
 
@@ -69,7 +70,7 @@ class _MakeComplaintState extends State<MakeComplaint> {
               Container(
                 height: media.height * 1,
                 width: media.width * 1,
-                color: page,
+                color: white,
                 padding: EdgeInsets.only(
                     left: media.width * 0.05, right: media.width * 0.05),
                 child: Column(
@@ -84,7 +85,8 @@ class _MakeComplaintState extends State<MakeComplaint> {
                           width: media.width * 1,
                           alignment: Alignment.center,
                           child: Text(
-                            languages[choosenLanguage]['text_make_complaints'],
+                            // languages[choosenLanguage]['text_make_complaints'],
+                            'Complaints',
                             style: GoogleFonts.roboto(
                                 fontSize: media.width * twenty,
                                 fontWeight: FontWeight.w600,
@@ -102,110 +104,123 @@ class _MakeComplaintState extends State<MakeComplaint> {
                     SizedBox(
                       height: media.width * 0.05,
                     ),
-                    (generalComplaintList.isNotEmpty)
-                        ? Expanded(
-                            child: Column(children: [
-                            InkWell(
-                              onTap: () {
-                                setState(() {
-                                  if (_showOptions == false) {
-                                    _showOptions = true;
-                                  } else {
-                                    _showOptions = false;
-                                  }
-                                });
-                              },
-                              child: Container(
-                                padding: EdgeInsets.only(
-                                    left: media.width * 0.05,
-                                    right: media.width * 0.05),
-                                height: media.width * 0.12,
-                                width: media.width * 0.8,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    border: Border.all(
-                                        color: borderLines, width: 1.2)),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(generalComplaintList[complaintType]
-                                        ['title']),
-                                    RotatedBox(
-                                      quarterTurns:
-                                          (_showOptions == true) ? 2 : 0,
-                                      child: Container(
-                                        height: media.width * 0.08,
-                                        width: media.width * 0.08,
-                                        decoration: const BoxDecoration(
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                    'assets/images/chevron-down.png'),
-                                                fit: BoxFit.contain)),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: media.width * 0.08,
-                            ),
-                            Container(
-                              padding: EdgeInsets.all(media.width * 0.025),
-                              width: media.width * 0.8,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  border: Border.all(
-                                      color: borderLines, width: 1.2)),
-                              child: TextField(
-                                controller: complaintText,
-                                minLines: 5,
-                                maxLines: 5,
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintStyle: GoogleFonts.roboto(
-                                      fontSize: media.width * fourteen),
-                                  hintText: languages[choosenLanguage]
-                                          ['text_complaint_2'] +
-                                      ' (' +
-                                      languages[choosenLanguage]
-                                          ['text_complaint_3'] +
-                                      ')',
-                                ),
-                              ),
-                            ),
-                          ]))
-                        : Container(),
-                    (generalComplaintList.isNotEmpty)
-                        ? Container(
-                            padding: EdgeInsets.all(media.width * 0.05),
-                            child: Button(
-                                onTap: () async {
-                                  if (complaintText.text.length >= 10) {
-                                    setState(() {
-                                      _isLoading = true;
-                                    });
-                                    complaintDesc = complaintText.text;
-                                    dynamic result;
-                                    if (widget.fromPage == 1) {
-                                      result = await makeRequestComplaint();
-                                    } else {
-                                      result = await makeGeneralComplaint();
-                                    }
-                                    setState(() {
-                                      if (result == 'success') {
-                                        _success = true;
-                                      }
+                    SizedBox(
+                      width: 310,
+                      height: 180,
+                      child: Image.asset(
+                        'assets/images/services.png',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    SizedBox(
+                      height: media.width * 0.05,
+                    ),
+                    Expanded(
+                        child: Column(children: [
+                      InkWell(
+                        onTap: () {
+                          setState(() {
+                            if (_showOptions == false) {
+                              _showOptions = true;
+                            } else {
+                              _showOptions = false;
+                            }
+                          });
+                        },
+                        child: Container(
+                          padding: EdgeInsets.only(
+                              left: media.width * 0.05,
+                              right: media.width * 0.05),
+                          height: media.width * 0.12,
+                          width: media.width * 0.8,
+                          decoration: BoxDecoration(
+                            color: page,
+                              borderRadius: BorderRadius.circular(12),
+                              border:
+                                  Border.all(color: page, width: 1.2)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              // Text(generalComplaintList[complaintType]
+                              //     ['title']),
+                              Text('Title',style: TextStyle(color: white),),
+                              RotatedBox(
+                                quarterTurns: (_showOptions == true) ? 2 : 0,
+                                child: Container(
+                                  height: media.width * 0.08,
+                                  width: media.width * 0.08,
+                                    child : Icon(Icons.keyboard_arrow_down_outlined,color: white,),
+                                  decoration: const BoxDecoration(
 
-                                      _isLoading = false;
-                                    });
-                                  }
-                                },
-                                text: languages[choosenLanguage]
-                                    ['text_submit']),
-                          )
-                        : Container()
+                                      // image: DecorationImage(
+                                      //     image: AssetImage(
+                                      //         'assets/images/chotoo.png'),
+                                      //     fit: BoxFit.contain)
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: media.width * 0.08,
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(media.width * 0.025),
+                        width: media.width * 0.8,
+                        decoration: BoxDecoration(
+                          color: page,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: page, width: 1.2)),
+                        child: TextField(
+                          controller: complaintText,
+                          minLines: 5,
+                          maxLines: 5,
+                          style: TextStyle(color: white),
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintStyle: TextStyle(color: white,fontSize: media.width * fourteen),
+                            // hintText: languages[choosenLanguage]
+                            //         ['text_complaint_2'] +
+                            //     ' (' +
+                            //     languages[choosenLanguage]
+                            //         ['text_complaint_3'] +
+                            //     ')',
+                            hintText:
+                                'Write your complaint here(minimum 10 characters)',
+                          ),
+                        ),
+                      ),
+                    ])),
+                    Container(
+                      padding: EdgeInsets.all(media.width * 0.05),
+                      child: Button(
+                          onTap: () async {
+                            if (complaintText.text.length >= 10) {
+                              setState(() {
+                                _isLoading = true;
+                              });
+                              complaintDesc = complaintText.text;
+                              dynamic result;
+                              if (widget.fromPage == 1) {
+                                result = await makeRequestComplaint();
+                              } else {
+                                result = await makeGeneralComplaint();
+                              }
+                              setState(() {
+                                if (result == 'success') {
+                                  _success = true;
+                                }
+
+                                _isLoading = false;
+                              });
+                            }
+                          },
+                          // text: languages[choosenLanguage]['text_submit']),
+                          text:'Submit',
+                      ),
+                    )
                   ],
                 ),
               ),

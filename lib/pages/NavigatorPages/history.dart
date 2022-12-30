@@ -61,7 +61,7 @@ class _HistoryState extends State<History> {
                     Container(
                       height: media.height * 1,
                       width: media.width * 1,
-                      color: page,
+                      color: white,
                       padding: EdgeInsets.fromLTRB(media.width * 0.05,
                           media.width * 0.05, media.width * 0.05, 0),
                       child: Column(
@@ -75,8 +75,8 @@ class _HistoryState extends State<History> {
                                 width: media.width * 1,
                                 alignment: Alignment.center,
                                 child: Text(
-                                  languages[choosenLanguage]
-                                      ['text_enable_history'],
+                                  // languages[choosenLanguage]['text_enable_history'],
+                                  'Ride History',
                                   style: GoogleFonts.roboto(
                                       fontSize: media.width * twenty,
                                       fontWeight: FontWeight.w600,
@@ -98,13 +98,13 @@ class _HistoryState extends State<History> {
                             height: media.width * 0.13,
                             width: media.width * 0.9,
                             decoration: BoxDecoration(
-                                color: page,
-                                borderRadius: BorderRadius.circular(12),
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(26),
                                 boxShadow: [
                                   BoxShadow(
                                       blurRadius: 2,
                                       spreadRadius: 2,
-                                      color: Colors.black.withOpacity(0.2))
+                                      color: page)
                                 ]),
                             child: Row(
                               children: [
@@ -128,19 +128,19 @@ class _HistoryState extends State<History> {
                                       width: media.width * 0.3,
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(12),
+                                              BorderRadius.circular(26),
                                           color: (_showHistory == 0)
-                                              ? const Color(0xff222222)
-                                              : page),
+                                              ? const Color(0xFF369CC7)
+                                              : white),
                                       child: Text(
-                                        languages[choosenLanguage]
-                                            ['text_upcoming'],
+                                        // languages[choosenLanguage]['text_upcoming'],
+                                        'Shedualed Rides',
                                         style: GoogleFonts.roboto(
-                                            fontSize: media.width * fifteen,
+                                            fontSize: 12,
                                             fontWeight: FontWeight.w600,
                                             color: (_showHistory == 0)
                                                 ? Colors.white
-                                                : textColor),
+                                                : page),
                                       )),
                                 ),
                                 InkWell(
@@ -163,19 +163,19 @@ class _HistoryState extends State<History> {
                                       width: media.width * 0.3,
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(12),
+                                              BorderRadius.circular(26),
                                           color: (_showHistory == 1)
-                                              ? const Color(0xff222222)
-                                              : page),
+                                              ? const Color(0xFF369CC7)
+                                              : white),
                                       child: Text(
-                                        languages[choosenLanguage]
-                                            ['text_completed'],
+                                        // languages[choosenLanguage]['text_completed'],
+                                        'Completed',
                                         style: GoogleFonts.roboto(
-                                            fontSize: media.width * fifteen,
+                                            fontSize: 12,
                                             fontWeight: FontWeight.w600,
                                             color: (_showHistory == 1)
                                                 ? Colors.white
-                                                : textColor),
+                                                : page),
                                       )),
                                 ),
                                 InkWell(
@@ -198,19 +198,19 @@ class _HistoryState extends State<History> {
                                       width: media.width * 0.3,
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(12),
+                                              BorderRadius.circular(26),
                                           color: (_showHistory == 2)
-                                              ? const Color(0xff222222)
-                                              : page),
+                                              ? const Color(0xFF369CC7)
+                                              : white),
                                       child: Text(
-                                        languages[choosenLanguage]
-                                            ['text_cancelled'],
+                                        // languages[choosenLanguage]['text_cancelled'],
+                                        'Cancelled',
                                         style: GoogleFonts.roboto(
-                                            fontSize: media.width * fifteen,
+                                            fontSize: 12,
                                             fontWeight: FontWeight.w600,
                                             color: (_showHistory == 2)
                                                 ? Colors.white
-                                                : textColor),
+                                                : page),
                                       )),
                                 )
                               ],
@@ -968,8 +968,8 @@ class _HistoryState extends State<History> {
                                               SizedBox(
                                                 width: media.width * 0.9,
                                                 child: Text(
-                                                  languages[choosenLanguage]
-                                                      ['text_noDataFound'],
+                                                  // languages[choosenLanguage]['text_noDataFound'],
+                                                  'Data not found',
                                                   style: GoogleFonts.roboto(
                                                       fontSize:
                                                           media.width * sixteen,
@@ -1125,9 +1125,9 @@ class _HistoryState extends State<History> {
                         : Container(),
 
                     //loader
-                    (_isLoading == true)
-                        ? const Positioned(top: 0, child: Loading())
-                        : Container()
+                    // (_isLoading == true)
+                    //     ? const Positioned(top: 0, child: Loading())
+                    //     : Container()
                   ],
                 ),
               );
