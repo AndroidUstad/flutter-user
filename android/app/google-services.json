@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1030521283032",
+    "project_id": "tagyourtaxi-e9640",
+    "storage_bucket": "tagyourtaxi-e9640.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1030521283032:android:cd5487bdbbb434092d12ad",
+        "android_client_info": {
+          "package_name": "com.tagxi.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1030521283032-dmgfi2kj9sf60n0gii309gpst4dpv1id.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbeseEplDSnJwPM43ak8qI7SpGQxU0X2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1030521283032-dmgfi2kj9sf60n0gii309gpst4dpv1id.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1030521283032:android:da003c9c4764632d2d12ad",
+        "android_client_info": {
+          "package_name": "com.tagxi.user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1030521283032-dmgfi2kj9sf60n0gii309gpst4dpv1id.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbeseEplDSnJwPM43ak8qI7SpGQxU0X2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1030521283032-dmgfi2kj9sf60n0gii309gpst4dpv1id.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
