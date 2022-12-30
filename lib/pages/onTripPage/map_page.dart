@@ -325,7 +325,7 @@ class _MapsState extends State<Maps>
                   body: Stack(
                     children: [
                       Container(
-                        color: page,
+                        color: white,
                         height: media.height * 1,
                         width: media.width * 1,
                         child: Column(
@@ -527,26 +527,20 @@ class _MapsState extends State<Maps>
                                   SizedBox(
                                       height: media.height * 1,
                                       width: media.width * 1,
-                                      child: StreamBuilder<
-                                          DatabaseEvent>(
+                                      child: StreamBuilder<DatabaseEvent>(
                                           stream: fdb.onValue,
-                                          builder: (context,
-                                              AsyncSnapshot<
-                                                  DatabaseEvent>
-                                              event) {
+                                          builder: (context, AsyncSnapshot<
+                                              DatabaseEvent>event) {
                                             if (event.hasData) {
                                               // myMarkers.removeWhere(
                                               //     (element) => element.markerId.toString().contains('car'));
-                                              List driverData =
-                                              [];
-                                              event.data!.snapshot
-                                                  .children
+                                              List driverData = [];
+                                              event.data!.snapshot.children
                                               // ignore: avoid_function_literals_in_foreach_calls
                                                   .forEach(
                                                       (element) {
                                                     driverData.add(
-                                                        element
-                                                            .value);
+                                                        element.value);
                                                   });
                                               // ignore: avoid_function_literals_in_foreach_calls
                                               driverData.forEach(
@@ -892,7 +886,7 @@ class _MapsState extends State<Maps>
                                         decoration: BoxDecoration(
                                           color: (_bottom == 0)
                                               ? null
-                                              : page,
+                                              : white,
                                         ),
                                         padding: EdgeInsets.only(
                                             top: MediaQuery
@@ -984,7 +978,7 @@ class _MapsState extends State<Maps>
                                                             0)
                                                             ? page
                                                             : Colors
-                                                            .grey,
+                                                            .pink,
                                                         width: (_bottom ==
                                                             0)
                                                             ? 0
@@ -1233,40 +1227,6 @@ class _MapsState extends State<Maps>
                                           });
                                         }
                                       },
-                                      child: Container(
-                                        height: media.width * 0.1,
-                                        width: media.width * 0.1,
-                                        decoration: BoxDecoration(
-                                            boxShadow: [
-                                              BoxShadow(
-                                                  blurRadius: 2,
-                                                  color: Colors
-                                                      .black
-                                                      .withOpacity(
-                                                      0.2),
-                                                  spreadRadius: 2)
-                                            ],
-                                            color: page,
-                                            borderRadius:
-                                            BorderRadius
-                                                .circular(media
-                                                .width *
-                                                0.02)),
-                                        alignment:
-                                        Alignment.center,
-                                        child: Image.asset(
-                                          'assets/images/customercare.png',
-                                          fit: BoxFit.contain,
-                                          width:
-                                          media.width * 0.06,
-                                        ),
-                                        // Icon(
-                                        //     Icons
-                                        //         .my_location_sharp,
-                                        //     size: media
-                                        //             .width *
-                                        //         0.06),
-                                      ),
                                     ),
                                   ),
                                   (contactus == true)
@@ -2341,16 +2301,17 @@ class _MapsState extends State<Maps>
                                                             height: media
                                                                 .width * 0.05,
                                                           ),
-                                                          Button(onTap: () {
-                                                            Navigator.push(
-                                                                context,
-                                                                MaterialPageRoute(
-                                                                    builder: (
-                                                                        context) =>
-                                                                        BookingConfirmation(
-                                                                          type: 2,
-                                                                        )));
-                                                          },
+                                                          Button(
+                                                            onTap: () {
+                                                              Navigator.push(
+                                                                  context,
+                                                                  MaterialPageRoute(
+                                                                      builder: (
+                                                                          context) =>
+                                                                          BookingConfirmation(
+                                                                            type: 2,
+                                                                          )));
+                                                            },
                                                             // text: languages[choosenLanguage]['text_ridewithout_destination']
                                                             text: 'Ride without Destination',
                                                           ),
@@ -2862,7 +2823,8 @@ class _MapsState extends State<Maps>
                                       color: white),
                                   child: Column(
                                     children: [
-                                      Text('Delete Account',style: TextStyle(fontSize: 14),),
+                                      Text('Delete Account',
+                                        style: TextStyle(fontSize: 14),),
                                       SizedBox(
                                         height: media.width * 0.15,
                                       ),
@@ -2924,7 +2886,8 @@ class _MapsState extends State<Maps>
                                         width: media.width * 0.9,
                                         decoration: BoxDecoration(
                                             color: Colors.white,
-                                            borderRadius: BorderRadius.circular(26),
+                                            borderRadius: BorderRadius.circular(
+                                                26),
                                             boxShadow: [
                                               BoxShadow(
                                                   blurRadius: 2,
@@ -2955,15 +2918,18 @@ class _MapsState extends State<Maps>
                                                       borderRadius:
                                                       BorderRadius.circular(26),
                                                       color: (_showHistory == 0)
-                                                          ? const Color(0xFF369CC7)
+                                                          ? const Color(
+                                                          0xFF369CC7)
                                                           : white),
                                                   child: Text(
                                                     // languages[choosenLanguage]['text_upcoming'],
                                                     'Delete',
                                                     style: GoogleFonts.roboto(
                                                         fontSize: 12,
-                                                        fontWeight: FontWeight.w600,
-                                                        color: (_showHistory == 0)
+                                                        fontWeight: FontWeight
+                                                            .w600,
+                                                        color: (_showHistory ==
+                                                            0)
                                                             ? Colors.white
                                                             : page),
                                                   )),
@@ -2975,9 +2941,11 @@ class _MapsState extends State<Maps>
                                                   myHistoryPage.clear();
                                                   _showHistory = 1;
                                                   _loading = true;
+                                                  deleteAccount = false;
                                                 });
 
-                                                await getHistory('is_completed=1');
+                                                await getHistory(
+                                                    'is_completed=1');
                                                 setState(() {
                                                   _loading = false;
                                                 });
@@ -2990,15 +2958,19 @@ class _MapsState extends State<Maps>
                                                       borderRadius:
                                                       BorderRadius.circular(26),
                                                       color: (_showHistory == 1)
-                                                          ? const Color(0xFF369CC7)
+                                                          ? const Color(
+                                                          0xFF369CC7)
                                                           : white),
+
                                                   child: Text(
                                                     // languages[choosenLanguage]['text_completed'],
                                                     'Cancel',
                                                     style: GoogleFonts.roboto(
                                                         fontSize: 12,
-                                                        fontWeight: FontWeight.w600,
-                                                        color: (_showHistory == 1)
+                                                        fontWeight: FontWeight
+                                                            .w600,
+                                                        color: (_showHistory ==
+                                                            1)
                                                             ? Colors.white
                                                             : page),
                                                   )),
