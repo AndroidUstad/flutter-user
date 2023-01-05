@@ -40,6 +40,7 @@ Color verifyPending = const Color(0xFF369CC7);
 Color verifyDeclined = const Color(0xffE70000);
 Color offline = const Color(0xff898989);
 Color verified = const Color(0xffBDBCBC);
+Color grey = const Color(0xffCED5D3);
 Color online = const Color(0xff309700);
 Color onlineOfflineText = const Color(0xffFFFFFF);
 Color borderLines = const Color(0xffE5E5E5);

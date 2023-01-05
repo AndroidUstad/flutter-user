@@ -19,11 +19,10 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-
   navigate() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) =>  Maps()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Maps()));
   }
+
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
@@ -48,98 +47,98 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   children: [
                     Expanded(
                         child: SingleChildScrollView(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                height: media.height * 0.04,
-                              ),
-                              Center(
-                                child: Text(
-                                  // languages[choosenLanguage]['text_get_started'],
-                                  "Welcome Onboard",
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.roboto(
-                                      fontSize: media.width * twentyeight,
-                                      fontWeight: FontWeight.bold,
-                                      color: textColor),
-                                ),
-                              ),
-                              SizedBox(
-                                height: media.height * 0.012,
-                              ),
-                              Center(
-                                child: Text(
-                                  // languages[choosenLanguage]['text_fill_form'],
-                                  "Swift Ride",
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.roboto(
-                                      fontSize: media.width * sixteen,
-                                      color: textColor.withOpacity(0.3)),
-                                ),
-                              ),
-                              SizedBox(height: media.height * 0.04),
-
-
-                              Center(
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  height: media.width * 0.6,
-                                  width: media.width * 0.4,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    color: topBar,
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                          'assets/images/SuccessfulRegistarion.png'),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Center(
-                                child: Text(
-                                  // languages[choosenLanguage]['text_get_started'],
-                                  "Your registration has been successful ",
-                                  textAlign: TextAlign.center,
-                                  maxLines: 2,
-                                  style: GoogleFonts.roboto(
-                                      fontSize: media.width * twentyfour,
-                                      fontWeight: FontWeight.bold,
-                                      color: textColor),
-                                ),
-                              ),
-
-
-                              SizedBox(height: media.height * 0.10),
-
-                              Container(
-                                padding: EdgeInsets.all(media.width * 0.05),
-                                child: ElevatedButton(
-                                  onPressed: () {
-                                    navigate();
-                                  },
-                                  child: Text(
-                                    'Get Started',
-                                    style: TextStyle(color: Colors.white,fontSize: 16),
-                                  ),
-                                  style: ElevatedButton.styleFrom(
-                                    minimumSize: const Size.fromHeight(55),
-                                    // NEW
-                                    primary: page,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15.0),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: media.height * 0.04,
                           ),
-                        )),
+                          Center(
+                            child: Text(
+                              // languages[choosenLanguage]['text_get_started'],
+                              "Welcome Onboard",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontFamily: 'Inter-SemiBold',
+                                  fontSize: 24,
+                                  // fontWeight: FontWeight.bold,
+                                  color: textColor),
+                            ),
+                          ),
+                          SizedBox(
+                            height: media.height * 0.012,
+                          ),
+                          Center(
+                            child: Text(
+                              // languages[choosenLanguage]['text_fill_form'],
+                              "Swift Ride",
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.roboto(
+                                  fontSize: media.width * sixteen,
+                                  color: textColor.withOpacity(0.3)),
+                            ),
+                          ),
+                          SizedBox(height: media.height * 0.04),
+                          Center(
+                            child: Container(
+                              alignment: Alignment.center,
+                              height: media.width * 0.6,
+                              width: media.width * 0.4,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                color: topBar,
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                      'assets/images/SuccessfulRegistarion.png'),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Center(
+                            child: Text(
+                              // languages[choosenLanguage]['text_get_started'],
+                              "Your registration has been successful ",
+                              textAlign: TextAlign.center,
+                              maxLines: 2,
+                              style: TextStyle(
+                                  fontFamily: 'Inter-SemiBold',
+                                  fontSize: 24,
+                                  // fontWeight: FontWeight.bold,
+                                  color: textColor),
+                            ),
+                          ),
+                          SizedBox(height: media.height * 0.10),
+                          Container(
+                            padding: EdgeInsets.all(media.width * 0.05),
+                            child: ElevatedButton(
+                              onPressed: () {
+                                navigate();
+                              },
+                              child: Text(
+                                'Get Started',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontFamily: 'Inter-SemiBold',
+                                ),
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size.fromHeight(55),
+                                // NEW
+                                primary: page,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
                   ],
                 ),
               ),
             ),
-
           ], //image pick
         ),
       ),

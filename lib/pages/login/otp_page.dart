@@ -206,32 +206,43 @@ class _OtpState extends State<Otp> {
                                     child: Text(
                                       // languages[choosenLanguage]['text_phone_verify'],
                                       "Enter your passcode",
-                                      style: GoogleFonts.roboto(
-                                          fontSize: media.width * twentyfour,
+                                      style: TextStyle(
+                                          fontFamily: 'Inter-Regular',
+                                          fontSize: 24,
                                           fontWeight: FontWeight.bold,
                                           color: textColor),
+                                      // style: GoogleFonts.roboto(
+                                      //     fontSize: media.width * twentyfour,
+                                      //     fontWeight: FontWeight.bold,
+                                      //     color: textColor),
                                     ),
                                   ),
                                 ),
                                 const SizedBox(
                                   height: 10,
                                 ),
-                                Text(
-                                  // languages[choosenLanguage]['text_enter_otp'],
-                                  "We’ve sent the code to the email on your device",
-                                  maxLines: 3,
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.roboto(
-                                      fontSize: media.width * sixteen,
-                                      color: textColor.withOpacity(0.3)),
+                                Center(
+                                  child: Text(
+                                    // languages[choosenLanguage]['text_enter_otp'],
+                                    "We’ve sent the code to the email on your \ndevice",
+                                    maxLines: 3,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontFamily: 'Inter-Regular',
+                                        fontSize: 14,
+                                        color: textColor.withOpacity(0.3)),
+                                  ),
                                 ),
                                 const SizedBox(height: 10),
-                                Center(child: Image.asset('assets/images/enterotp.png')),
+                                Center(
+                                    child: Image.asset(
+                                        'assets/images/enterotp.png')),
                                 SizedBox(height: media.height * 0.04),
                                 Container(
                                   height: 55,
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
                                     children: [
                                       _textFieldOTP(first: true, last: false),
                                       _textFieldOTP(first: false, last: false),
@@ -282,11 +293,20 @@ class _OtpState extends State<Otp> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Code expires in : ',
-                                        style: TextStyle(fontSize: 12),
+                                      Text(
+                                        'Code expires in : ',
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontFamily: 'Inter-Regular',
+                                        ),
                                       ),
-                                      Text('00 : 56 ',
-                                        style: TextStyle(fontSize: 12,color: themeM1),
+                                      Text(
+                                        '00 : 56 ',
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          color: themeM1,
+                                          fontFamily: 'Inter-Regular',
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -295,11 +315,20 @@ class _OtpState extends State<Otp> {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text('Didn’t receive code?',
-                                      style: TextStyle(fontSize: 12),
+                                    Text(
+                                      'Didn’t receive code?',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontFamily: 'Inter-Regular',
+                                      ),
                                     ),
-                                    Text(' Resend Code',
-                                      style: TextStyle(fontSize: 12,color: themeM1),
+                                    Text(
+                                      ' Resend Code',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: themeM1,
+                                        fontFamily: 'Inter-Regular',
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -307,17 +336,17 @@ class _OtpState extends State<Otp> {
                                 // show error on otp
                                 (_error != '')
                                     ? Container(
-                                  width: media.width * 0.8,
-                                  alignment: Alignment.center,
-                                  margin: EdgeInsets.only(
-                                      top: media.height * 0.02),
-                                  child: Text(
-                                    _error,
-                                    style: GoogleFonts.roboto(
-                                        fontSize: media.width * sixteen,
-                                        color: Colors.red),
-                                  ),
-                                )
+                                        width: media.width * 0.8,
+                                        alignment: Alignment.center,
+                                        margin: EdgeInsets.only(
+                                            top: media.height * 0.02),
+                                        child: Text(
+                                          _error,
+                                          style: GoogleFonts.roboto(
+                                              fontSize: media.width * sixteen,
+                                              color: Colors.red),
+                                        ),
+                                      )
                                     : Container(),
 
                                 //Button
@@ -326,8 +355,11 @@ class _OtpState extends State<Otp> {
                                   alignment: Alignment.center,
                                   child: ElevatedButton(
                                     onPressed: () async {
-                                      Navigator.pushReplacement(context,
-                                          MaterialPageRoute(builder: (context) => const GetStarted()));
+                                      Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const GetStarted()));
                                       // if (otpNumber.length == 6) {
                                       //   timer.cancel();
                                       //   setState(() {
@@ -399,15 +431,21 @@ class _OtpState extends State<Otp> {
                                     //     (resendTime != 0 && otpNumber.length != 6)
                                     //         ? underline
                                     //         : null,
-                                    child:  Text(
+                                    child: Text(
                                       'Verify Code',
-                                      style: TextStyle(color: Colors.white,fontSize: 16),
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontFamily: 'Inter-SemiBold',
+                                      ),
                                     ),
                                     style: ElevatedButton.styleFrom(
-                                      minimumSize: const Size.fromHeight(55), // NEW
+                                      minimumSize:
+                                          const Size.fromHeight(55), // NEW
                                       primary: page,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15.0),
+                                        borderRadius:
+                                            BorderRadius.circular(15.0),
                                       ),
                                     ),
                                   ),
@@ -447,6 +485,7 @@ class _OtpState extends State<Otp> {
       ),
     );
   }
+
   Widget _textFieldOTP({required bool first, required bool last}) {
     return Container(
       child: AspectRatio(
@@ -464,7 +503,7 @@ class _OtpState extends State<Otp> {
           showCursor: false,
           readOnly: false,
           textAlign: TextAlign.center,
-          style:  const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           keyboardType: TextInputType.number,
           maxLength: 1,
           decoration: InputDecoration(

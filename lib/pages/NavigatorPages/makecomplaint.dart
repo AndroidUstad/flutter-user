@@ -87,6 +87,7 @@ class _MakeComplaintState extends State<MakeComplaint> {
                           child: Text(
                             // languages[choosenLanguage]['text_make_complaints'],
                             'Complaints',
+
                             style: GoogleFonts.roboto(
                                 fontSize: media.width * twenty,
                                 fontWeight: FontWeight.w600,
@@ -134,28 +135,31 @@ class _MakeComplaintState extends State<MakeComplaint> {
                           height: media.width * 0.12,
                           width: media.width * 0.8,
                           decoration: BoxDecoration(
-                            color: page,
+                              color: page,
                               borderRadius: BorderRadius.circular(12),
-                              border:
-                                  Border.all(color: page, width: 1.2)),
+                              border: Border.all(color: page, width: 1.2)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               // Text(generalComplaintList[complaintType]
                               //     ['title']),
-                              Text('Title',style: TextStyle(color: white),),
+                              Text(
+                                'Title',
+                                style: TextStyle(
+                                  fontFamily: 'Inter-Regular',
+                                  fontSize: 8,
+                                  // fontWeight: FontWeight.bold,
+                                  color: white,
+                                ),
+                              ),
                               RotatedBox(
                                 quarterTurns: (_showOptions == true) ? 2 : 0,
                                 child: Container(
                                   height: media.width * 0.08,
                                   width: media.width * 0.08,
-                                    child : Icon(Icons.keyboard_arrow_down_outlined,color: white,),
-                                  decoration: const BoxDecoration(
-
-                                      // image: DecorationImage(
-                                      //     image: AssetImage(
-                                      //         'assets/images/chotoo.png'),
-                                      //     fit: BoxFit.contain)
+                                  child: Icon(
+                                    Icons.keyboard_arrow_down_outlined,
+                                    color: white,
                                   ),
                                 ),
                               )
@@ -170,7 +174,7 @@ class _MakeComplaintState extends State<MakeComplaint> {
                         padding: EdgeInsets.all(media.width * 0.025),
                         width: media.width * 0.8,
                         decoration: BoxDecoration(
-                          color: page,
+                            color: page,
                             borderRadius: BorderRadius.circular(12),
                             border: Border.all(color: page, width: 1.2)),
                         child: TextField(
@@ -180,7 +184,13 @@ class _MakeComplaintState extends State<MakeComplaint> {
                           style: TextStyle(color: white),
                           decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintStyle: TextStyle(color: white,fontSize: media.width * fourteen),
+                            // hintStyle: TextStyle(color: white, fontSize: media.width * fourteen),
+                            hintStyle: TextStyle(
+                              fontFamily: 'Inter-Regular',
+                              fontSize: 8,
+                              // fontWeight: FontWeight.bold,
+                              color: white,
+                            ),
                             // hintText: languages[choosenLanguage]
                             //         ['text_complaint_2'] +
                             //     ' (' +
@@ -196,29 +206,29 @@ class _MakeComplaintState extends State<MakeComplaint> {
                     Container(
                       padding: EdgeInsets.all(media.width * 0.05),
                       child: Button(
-                          onTap: () async {
-                            if (complaintText.text.length >= 10) {
-                              setState(() {
-                                _isLoading = true;
-                              });
-                              complaintDesc = complaintText.text;
-                              dynamic result;
-                              if (widget.fromPage == 1) {
-                                result = await makeRequestComplaint();
-                              } else {
-                                result = await makeGeneralComplaint();
-                              }
-                              setState(() {
-                                if (result == 'success') {
-                                  _success = true;
-                                }
-
-                                _isLoading = false;
-                              });
+                        onTap: () async {
+                          if (complaintText.text.length >= 10) {
+                            setState(() {
+                              _isLoading = true;
+                            });
+                            complaintDesc = complaintText.text;
+                            dynamic result;
+                            if (widget.fromPage == 1) {
+                              result = await makeRequestComplaint();
+                            } else {
+                              result = await makeGeneralComplaint();
                             }
-                          },
-                          // text: languages[choosenLanguage]['text_submit']),
-                          text:'Submit',
+                            setState(() {
+                              if (result == 'success') {
+                                _success = true;
+                              }
+
+                              _isLoading = false;
+                            });
+                          }
+                        },
+                        // text: languages[choosenLanguage]['text_submit']),
+                        text: 'Submit',
                       ),
                     )
                   ],
@@ -228,7 +238,7 @@ class _MakeComplaintState extends State<MakeComplaint> {
               //choose complaint option
               (_showOptions == true)
                   ? Positioned(
-                      top: media.width * 0.35 +
+                      top: media.width * 0.87 +
                           MediaQuery.of(context).padding.top,
                       child: Container(
                         padding: EdgeInsets.all(media.width * 0.025),

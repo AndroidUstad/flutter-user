@@ -64,7 +64,7 @@ class _LoginState extends State<Login> {
           children: [
             (countries.isNotEmpty)
                 ? Center(
-                  child: Container(
+                    child: Container(
                       //color: page,
                       decoration: const BoxDecoration(
                         color: Colors.white,
@@ -93,9 +93,13 @@ class _LoginState extends State<Login> {
                             child: Text(
                               // languages[choosenLanguage]['text_login'],
                               "SWIFT RIDE",
-                              style: GoogleFonts.roboto(
-                                  fontSize: media.width * twentysix,
-                                  fontWeight: FontWeight.bold,
+                              // style: GoogleFonts.roboto(
+                              //     fontSize: media.width * twentysix,
+                              //     fontWeight: FontWeight.bold,
+                              //     color: page),
+                              style: TextStyle(
+                                  fontFamily: 'Inter-Regular',
+                                  fontSize: 25,
                                   color: page),
                             ),
                           ),
@@ -107,8 +111,8 @@ class _LoginState extends State<Login> {
                             height: 55,
                             width: media.width * 1 - (media.width * 0.08 * 2),
                             decoration: BoxDecoration(
-                                border:
-                                    Border(bottom: BorderSide(color: underline))),
+                                border: Border(
+                                    bottom: BorderSide(color: underline))),
                             child: Row(
                               children: [
                                 InkWell(
@@ -150,8 +154,8 @@ class _LoginState extends State<Login> {
                                                                       .circular(
                                                                           20),
                                                               border: Border.all(
-                                                                  color:
-                                                                      Colors.grey,
+                                                                  color: Colors
+                                                                      .grey,
                                                                   width: 1.5)),
                                                           child: TextField(
                                                             decoration:
@@ -189,52 +193,16 @@ class _LoginState extends State<Login> {
                                                           child:
                                                               SingleChildScrollView(
                                                             child: Column(
-                                                              children: countries
-                                                                  .asMap()
-                                                                  .map(
-                                                                      (i, value) {
-                                                                    return MapEntry(
-                                                                        i,
-                                                                        SizedBox(
-                                                                          width: media.width *
-                                                                              0.9,
-                                                                          child: (searchVal == '' &&
-                                                                                  countries[i]['flag'] != null)
-                                                                              ? InkWell(
-                                                                                  onTap: () {
-                                                                                    setState(() {
-                                                                                      phcode = i;
-                                                                                    });
-                                                                                    Navigator.pop(context);
-                                                                                  },
-                                                                                  child: Container(
-                                                                                    padding: const EdgeInsets.only(top: 10, bottom: 10),
-                                                                                    color: Colors.white,
-                                                                                    child: Row(
-                                                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                      children: [
-                                                                                        Row(
-                                                                                          children: [
-                                                                                            Image.network(countries[i]['flag']),
-                                                                                            SizedBox(
-                                                                                              width: media.width * 0.02,
-                                                                                            ),
-                                                                                            SizedBox(
-                                                                                                width: media.width * 0.4,
-                                                                                                child: Text(
-                                                                                                  countries[i]['name'],
-                                                                                                  style: GoogleFonts.roboto(fontSize: media.width * sixteen),
-                                                                                                )),
-                                                                                          ],
-                                                                                        ),
-                                                                                        Text(
-                                                                                          countries[i]['dial_code'],
-                                                                                          style: GoogleFonts.roboto(fontSize: media.width * sixteen),
-                                                                                        )
-                                                                                      ],
-                                                                                    ),
-                                                                                  ))
-                                                                              : (countries[i]['flag'] != null && countries[i]['name'].toLowerCase().contains(searchVal.toLowerCase()))
+                                                              children:
+                                                                  countries
+                                                                      .asMap()
+                                                                      .map((i,
+                                                                          value) {
+                                                                        return MapEntry(
+                                                                            i,
+                                                                            SizedBox(
+                                                                              width: media.width * 0.9,
+                                                                              child: (searchVal == '' && countries[i]['flag'] != null)
                                                                                   ? InkWell(
                                                                                       onTap: () {
                                                                                         setState(() {
@@ -269,11 +237,46 @@ class _LoginState extends State<Login> {
                                                                                           ],
                                                                                         ),
                                                                                       ))
-                                                                                  : Container(),
-                                                                        ));
-                                                                  })
-                                                                  .values
-                                                                  .toList(),
+                                                                                  : (countries[i]['flag'] != null && countries[i]['name'].toLowerCase().contains(searchVal.toLowerCase()))
+                                                                                      ? InkWell(
+                                                                                          onTap: () {
+                                                                                            setState(() {
+                                                                                              phcode = i;
+                                                                                            });
+                                                                                            Navigator.pop(context);
+                                                                                          },
+                                                                                          child: Container(
+                                                                                            padding: const EdgeInsets.only(top: 10, bottom: 10),
+                                                                                            color: Colors.white,
+                                                                                            child: Row(
+                                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                              children: [
+                                                                                                Row(
+                                                                                                  children: [
+                                                                                                    Image.network(countries[i]['flag']),
+                                                                                                    SizedBox(
+                                                                                                      width: media.width * 0.02,
+                                                                                                    ),
+                                                                                                    SizedBox(
+                                                                                                        width: media.width * 0.4,
+                                                                                                        child: Text(
+                                                                                                          countries[i]['name'],
+                                                                                                          style: GoogleFonts.roboto(fontSize: media.width * sixteen),
+                                                                                                        )),
+                                                                                                  ],
+                                                                                                ),
+                                                                                                Text(
+                                                                                                  countries[i]['dial_code'],
+                                                                                                  style: GoogleFonts.roboto(fontSize: media.width * sixteen),
+                                                                                                )
+                                                                                              ],
+                                                                                            ),
+                                                                                          ))
+                                                                                      : Container(),
+                                                                            ));
+                                                                      })
+                                                                      .values
+                                                                      .toList(),
                                                             ),
                                                           ),
                                                         ),
@@ -297,7 +300,8 @@ class _LoginState extends State<Login> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        Image.network(countries[phcode]['flag']),
+                                        Image.network(
+                                            countries[phcode]['flag']),
                                         SizedBox(
                                           width: media.width * 0.02,
                                         ),
@@ -334,7 +338,8 @@ class _LoginState extends State<Login> {
                                         phnumber = controller.text;
                                       });
                                       if (controller.text.length ==
-                                          countries[phcode]['dial_max_length']) {
+                                          countries[phcode]
+                                              ['dial_max_length']) {
                                         FocusManager.instance.primaryFocus
                                             ?.unfocus();
                                       }
@@ -451,7 +456,10 @@ class _LoginState extends State<Login> {
                               },
                               child: Text(
                                 'Sign in',
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(
+                                    fontFamily: 'Inter-Regular',
+                                    fontSize: 16,
+                                    color: white),
                               ),
                               style: ElevatedButton.styleFrom(
                                 minimumSize: const Size.fromHeight(55), // NEW
@@ -461,40 +469,40 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
                             ),
-                                  // width: media.width * 1 - media.width * 0.08,
-                                  // alignment: Alignment.center,
-                                  // child: Button(
-                                  //   onTap: () async {
-                                  //     FocusManager.instance.primaryFocus
-                                  //         ?.unfocus();
-                                  //     setState(() {
-                                  //       _isLoading = true;
-                                  //     });
-                                  //     var val = await otpCall();
-                                  //     if (val.value == true) {
-                                  //       phoneAuthCheck = true;
-                                  //       await phoneAuth(countries[phcode]
-                                  //               ['dial_code'] +
-                                  //           phnumber);
-                                  //
-                                  //       navigate();
-                                  //     } else {
-                                  //       phoneAuthCheck = false;
-                                  //       navigate();
-                                  //     }
-                                  //     setState(() {
-                                  //       _isLoading = false;
-                                  //     });
-                                  //   },
-                                  //   text: 'Login',
-                                  //   // text: languages[choosenLanguage]
-                                  //   //     ['text_login'],
-                                  // ),
+                            // width: media.width * 1 - media.width * 0.08,
+                            // alignment: Alignment.center,
+                            // child: Button(
+                            //   onTap: () async {
+                            //     FocusManager.instance.primaryFocus
+                            //         ?.unfocus();
+                            //     setState(() {
+                            //       _isLoading = true;
+                            //     });
+                            //     var val = await otpCall();
+                            //     if (val.value == true) {
+                            //       phoneAuthCheck = true;
+                            //       await phoneAuth(countries[phcode]
+                            //               ['dial_code'] +
+                            //           phnumber);
+                            //
+                            //       navigate();
+                            //     } else {
+                            //       phoneAuthCheck = false;
+                            //       navigate();
+                            //     }
+                            //     setState(() {
+                            //       _isLoading = false;
+                            //     });
+                            //   },
+                            //   text: 'Login',
+                            //   // text: languages[choosenLanguage]
+                            //   //     ['text_login'],
+                            // ),
                           )
                         ],
                       ),
                     ),
-                )
+                  )
                 : Container(
                     height: media.height * 1,
                     width: media.width * 1,

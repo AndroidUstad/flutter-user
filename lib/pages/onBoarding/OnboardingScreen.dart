@@ -27,9 +27,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const bodyStyle = TextStyle(fontSize: 19.0, color: Colors.white);
-    const pageDecoration =  PageDecoration(
-      titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700, color: Colors.white),
+    const bodyStyle = TextStyle(
+        fontFamily: 'Inter-Regular', fontSize: 16.0, color: Colors.white);
+    const pageDecoration = PageDecoration(
+      titleTextStyle: TextStyle(
+          fontFamily: 'Inter-Regular',
+          fontSize: 32.0,
+          fontWeight: FontWeight.w700,
+          color: Colors.white),
       bodyTextStyle: bodyStyle,
       // bodyPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
       pageColor: Color(0xFF369CC7),
@@ -42,22 +47,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       pages: [
         PageViewModel(
           title: "Request Ride",
-          body:
-          "Request a ride get picked up by a nearby community driver'",
+          body: "Request a ride get picked up by a nearby community driver'",
           image: _buildImage('onboarding0.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: 'Confirm Your Driver',
           body:
-          "Huge drivers network helps you find comfortable and cheap ride",
+              "Huge drivers network helps you find comfortable and cheap ride",
           image: _buildImage('onboarding1.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Track Your Ride",
           body:
-          "Know your driver in advance and be able to view current location in real time on the map",
+              "Know your driver in advance and be able to view current location in real time on the map",
           image: _buildImage('onboarding2.png'),
           footer: Padding(
             padding: const EdgeInsets.only(left: 15.0, right: 15.0),
@@ -68,7 +72,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               },
               child: const Text(
                 'GET STARTED',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(
+                    fontFamily: 'Inter-Regular',
+                    fontSize: 16,
+                    color: Colors.black),
               ),
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size.fromHeight(55), // NEW

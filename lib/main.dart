@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tagyourtaxi_driver/functions/functions.dart';
 import 'package:tagyourtaxi_driver/functions/notifications.dart';
+import 'package:tagyourtaxi_driver/pages/onTripPage/map_page.dart';
 import 'pages/loadingPage/loadingpage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
@@ -38,6 +39,6 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'product name',
             theme: ThemeData(),
-            home: const LoadingPage()));
+            home: const Maps()));
   }
 }
